@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasu Desai | Portfolio Preview</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Your original CSS from the HTML file */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .group:hover .floating-on-hover {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Added CSS for better theme integration */
+        :root {
+            --navy: #0a192f;
+            --light-navy: #112240;
+            --light-slate: #a8b2d1;
+            --slate: #ccd6f6;
+            --accent: #64ffda;
+        }
+        body {
+            background-color: var(--navy);
+            font-family: 'Inter', sans-serif;
+        }
+        .font-mono { font-family: 'Fira Code', monospace; }
+        .bg-navy { background-color: var(--navy); }
+        .bg-light-navy { background-color: var(--light-navy); }
+        .text-accent { color: var(--accent); }
+        .text-slate { color: var(--slate); }
+        .text-light-slate { color: var(--light-slate); }
+        .border-accent { border-color: var(--accent); }
+        
+        .timeline-item:hover .timeline-dot {
+            background-color: var(--navy);
+            border-color: var(--accent);
+        }
+
+        .timeline-item:hover .timeline-content {
+            transform: translateY(-8px);
+            background-color: var(--light-navy);
+        }
+
+        /* Initial fade-in animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        section {
+             animation-delay: 0.2s; /* Stagger animation */
+        }
+        
+        /* CSS FOR ACTIVE NAV LINK ON SCROLL */
+        .nav-link.active {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .nav-link.active::before {
+            content: '';
+            display: block;
+            width: 3px;
+            height: 100%;
+            background-color: var(--accent);
+            position: absolute;
+            left: -24px;
+            top: 0;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-navy">
+
+    <canvas id="particle-canvas" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+
+    <div class="flex">
+        <aside class="hidden lg:flex w-1/6 h-screen sticky top-0 flex-col justify-between p-8">
+            <div class="flex flex-col gap-8">
+                <a href="#hero" class="flex items-center justify-center w-12 h-12 rounded-full bg-accent text-white text-2xl shadow-lg hover:scale-110 transition-transform duration-300">
+                  🚀
+                </a>
+                <nav id="desktop-nav" class="flex flex-col gap-4 text-xl">
+                    <a href="#about" class="nav-link text-light-slate hover:text-accent transition-colors duration-300 relative">01. About</a>
+                    <a href="#education" class="nav-link text-light-slate hover:text-accent transition-colors duration-300 relative">02. Education</a>
+                    <a href="#projects" class="nav-link text-light-slate hover:text-accent transition-colors duration-300 relative">03. My Work</a>
+                    <a href="#experience" class="nav-link text-light-slate hover:text-accent transition-colors duration-300 relative">04. Experience</a>
+                </nav>
+            </div>
+            <div class="flex flex-col items-start gap-6">
+                <a href="Resume_VasuDesai.pdf" target="_blank" class="text-light-slate hover:text-accent transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/vasudesai11" target="_blank" class="text-light-slate hover:text-accent transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="mailto:vasudesai1111@gmail.com" class="text-light-slate hover:text-accent transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+                <a href="https://www.instagram.com/vasiuuuuu/" target="_blank" class="text-light-slate hover:text-accent transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+            </div>
+        </aside>
+
+        <main class="w-full lg:w-5/6 px-6 sm:px-12 md:px-24">
+            
+          <section id="hero" class="min-h-screen flex items-center fade-in-up">
+              <div class="w-full">
+                  <p class="text-accent font-mono text-2xl mb-5">Hi, I am</p>
+                  <h1 class="text-6xl sm:text-8xl md:text-[9rem] leading-none font-bold text-slate whitespace-nowrap">Vasu Desai.</h1>
+                  <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-light-slate mt-3 whitespace-nowrap">
+                      <span>Engineer</span>
+                      <span class="mx-4 text-accent">/</span>
+                      <span>Strategist</span>
+                    </h2>
+                  <div class="text-light-slate text-2xl mt-10 space-y-4">
+                      <p class="whitespace-nowrap">Brains + strategy is the baseline.</p>
+                      <p class="whitespace-nowrap">Engineer by degree, strategist by instinct — I turn vague ideas into structured outcomes.</p>
+                      <p class="whitespace-nowrap">From messy slides to tangled data, I bring clarity where most bring templates.</p>
+                      <p class="whitespace-nowrap">Think clean code, clear metrics, and zero tolerance for guesswork.</p>
+                  </div>
+              </div>
+          </section>
+
+           <section id="about" class="py-24 fade-in-up">
+              <h3 class="flex items-center text-5xl font-bold text-slate mb-16">
+                <span class="text-accent font-mono text-4xl mr-5">01.</span> About Me
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-5 gap-16">
+                <div class="md:col-span-3 text-xl text-light-slate space-y-8">
+                  <p>
+                    Hey, I’m Vasu — a B.Tech Computer Science student from Gujarat with an engineer’s mindset and a strategist’s lens.
+                  </p>
+                  <p>
+                    I’m not chasing the next framework or building for the sake of shipping. I’m more interested in systems that make sense — whether that’s code, business logic, or high-stakes decisions. My work spans financial models, cost-benefit analyses, stakeholder alignment, and turning ambiguity into clarity.
+                  </p>
+                  <p>
+                    Across roles in finance, analytics, and team leadership, I’ve learned that good strategy is just structured problem-solving — context-aware, objective, and outcome-driven. I ask uncomfortable questions, turn messy inputs into sharp insights, and fix what most people overlook.
+                  </p>
+                  <p>
+                    I believe clear thinking beats loud opinions, metrics should guide decisions (not just decorate slides), and every problem deserves more than a copy-paste solution.
+                  </p>
+                  <p>
+                    When I’m not untangling real-world messes, I’m doing the same in competitive strategy games — because thinking five steps ahead doesn’t stop when the screen dims.
+                  </p>
+                </div>
+                <div class="md:col-span-2 flex justify-center items-stretch">
+                  <div class="relative group w-full h-full max-w-sm md:max-w-full">
+                    <div class="absolute inset-0 bg-accent rounded-lg floating-on-hover"></div>
+                    <img src="trial_4/portrait.jpg" alt="Portrait of Vasu" class="absolute inset-0 w-full h-full object-cover rounded-lg z-10 floating-on-hover">
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="education" class="py-24 fade-in-up">
+                <h3 class="flex items-center text-5xl font-bold text-slate mb-16">
+                    <span class="text-accent font-mono text-4xl mr-5">02.</span> Education
+                </h3>
+                <div class="bg-light-navy p-10 rounded-lg shadow-lg max-w-3xl">
+                    <h4 class="text-4xl font-bold text-slate">Symbiosis Institute of Technology</h4>
+                    <p class="text-accent font-mono text-xl mt-3">B.Tech - Computer Science & Engineering (2022-26)</p>
+                    <p class="text-light-slate text-xl mt-8">
+                        Where I'm formally learning how to tell computers what to do, and occasionally, they listen.
+                    </p>
+                </div>
+            </section>
+
+            <section id="projects" class="py-24 fade-in-up">
+                <h3 class="flex items-center text-5xl font-bold text-slate mb-16">
+                    <span class="text-accent font-mono text-4xl mr-5">03.</span> My Work
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="https://github.com/vasudesai11/Warehouse-surveillance.git" target="_blank" rel="noopener noreferrer" class="group md:col-span-2">
+                        <div class="project-card bg-light-navy p-8 rounded-lg shadow-lg hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full">
+                            <div class="flex items-start justify-between mb-4">
+                                <h4 class="text-3xl font-bold text-slate group-hover:text-accent transition-colors duration-300">Engineering Proactive Safety</h4>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div class="text-light-slate text-lg space-y-3 flex-grow">
+                                <p><span class="font-mono text-accent text-base">Problem:</span> Manual safety monitoring is costly and fails to prevent incidents before they happen.</p>
+                                <p><span class="font-mono text-accent text-base">Solution:</span> Engineered a computer vision system to analyze live video and automatically detect hazards like PPE violations.</p>
+                                <p><span class="font-mono text-accent text-base">Impact:</span> Created an early-warning system that cuts incident response times and directly improves workplace safety standards.</p>
+                            </div>
+                            <div class="mt-6 text-base font-mono text-light-slate">
+                                <span>Python</span> &middot; <span>AI/ML</span> &middot; <span>Computer Vision</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://github.com/vasudesai11/Price-Optimisation-Engine.git" target="_blank" rel="noopener noreferrer" class="group">
+                        <div class="project-card bg-light-navy p-8 rounded-lg shadow-lg hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full">
+                            <div class="flex items-start justify-between mb-4">
+                                <h4 class="text-2xl font-bold text-slate group-hover:text-accent transition-colors duration-300">Data-Driven Pricing for Profit</h4>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-light-slate text-lg space-y-3 flex-grow">
+                                <p><span class="font-mono text-accent text-base">Problem:</span> Generic, site-wide promotions were eroding profit margins with no proven ROI.</p>
+                                <p><span class="font-mono text-accent text-base">Solution:</span> Used an XGBoost model on 116k+ transactions to prove that targeted promotions were far more effective.</p>
+                                <p><span class="font-mono text-accent text-base">Impact:</span> Provided a clear playbook for growth: stop broad discounts and use targeted offers to achieve a <strong>55% sales uplift</strong>.</p>
+                            </div>
+                            <div class="mt-6 text-base font-mono text-light-slate">
+                                <span>Python</span> &middot; <span>XGBoost</span> &middot; <span>E-Commerce</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="project-card bg-light-navy p-8 rounded-lg shadow-lg hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                        <div class="flex items-start justify-between mb-4">
+                            <h4 class="text-2xl font-bold text-slate">Predictive Analytics for Revenue Defense</h4>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                        </div>
+                        <div class="text-light-slate text-lg space-y-3 flex-grow">
+                            <p><span class="font-mono text-accent text-base">Problem:</span> High customer churn represented a major, unquantified risk to revenue streams.</p>
+                            <p><span class="font-mono text-accent text-base">Solution:</span> Deployed a Random Forest model to predict churn with <strong>86.88% accuracy</strong> and surfaced at-risk accounts in real-time via a Power BI dashboard.</p>
+                            <p><span class="font-mono text-accent text-base">Impact:</span> Transformed a reactive problem into a proactive strategy, enabling targeted interventions to save millions in customer lifetime value.</p>
+                        </div>
+                        <div class="mt-6 text-base font-mono text-light-slate">
+                            <span>Power BI</span> &middot; <span>Machine Learning</span> &middot; <span>Python</span>
+                        </div>
+                    </div>
+                    <a href="insights.html" target="_blank" rel="noopener noreferrer" class="group md:col-span-2">
+                        <div class="project-card bg-light-navy p-8 rounded-lg shadow-lg hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full">
+                            <div class="flex items-start justify-between mb-4">
+                                <h4 class="text-3xl font-bold text-slate group-hover:text-accent transition-colors duration-300">Unlocking Insights from Legacy Data</h4>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-accent flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            </div>
+                            <div class="text-light-slate text-lg space-y-3 flex-grow">
+                                <p><span class="font-mono text-accent text-base">Problem:</span> Five years of valuable sales data (avg. ₹2 Cr. turnover) was locked away in spreadsheets, offering zero strategic insight.</p>
+                                <p><span class="font-mono text-accent text-base">Solution:</span> Built a suite of interactive Power BI dashboards to consolidate and visualize data from over 7,000+ components.</p>
+                                <p><span class="font-mono text-accent text-base">Impact:</span> Delivered a single source of truth for stakeholders, uncovering hidden revenue drivers to enable smarter inventory and sales decisions.</p>
+                            </div>
+                            <div class="mt-6 text-base font-mono text-light-slate">
+                                <span>Power BI</span> &middot; <span>Accounting</span> &middot; <span>Data Analysis</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section id="experience" class="py-24 fade-in-up">
+                <h3 class="flex items-center text-5xl font-bold text-slate mb-16">
+                    <span class="text-accent font-mono text-4xl mr-5">04.</span> Where I’ve Worked
+                </h3>
+                <div class="relative max-w-3xl mx-auto pl-8 border-l-2 border-light-navy/50">
+            
+                    <div class="timeline-item group mb-12">
+                        <div class="timeline-dot absolute w-6 h-6 bg-accent rounded-full -left-[13px] border-4 border-navy transition-colors duration-300"></div>
+                        <div class="timeline-content p-6 rounded-lg transition-all duration-300">
+                            <h4 class="text-3xl font-bold text-slate group-hover:text-accent transition-colors duration-300">Finance Lead <span class="text-accent group-hover:text-slate">| V@rSITy Club</span></h4>
+                            <p class="text-light-slate font-mono mt-1">November 2024 - Present</p>
+                            <ul class="mt-6 text-light-slate text-lg space-y-4 list-disc list-inside">
+                                <li>Managed a ₹3.2L budget for the university's environmental club, optimizing resource allocation across 10+ events.</li>
+                                <li>Drove a 25% increase in available event funding by leading vendor negotiations and implementing strategic budget controls.</li>
+                            </ul>
+                        </div>
+                    </div>
+            
+                    <div class="timeline-item group mb-12">
+                        <div class="timeline-dot absolute w-6 h-6 bg-accent rounded-full -left-[13px] border-4 border-navy transition-colors duration-300"></div>
+                        <div class="timeline-content p-6 rounded-lg transition-all duration-300">
+                            <h4 class="text-3xl font-bold text-slate group-hover:text-accent transition-colors duration-300">Events Lead <span class="text-accent group-hover:text-slate">| ACM Club</span></h4>
+                            <p class="text-light-slate font-mono mt-1">August 2024 - Present</p>
+                            <ul class="mt-6 text-light-slate text-lg space-y-4 list-disc list-inside">
+                                <li>Directed the end-to-end execution of technical workshops, seminars, and guest lectures for the college's official ACM chapter.</li>
+                                <li>Managed all event logistics, from speaker outreach to on-site coordination, consistently engaging 100+ attendees per event.</li>
+                            </ul>
+                        </div>
+                    </div>
+            
+                    <div class="timeline-item group mb-12">
+                        <div class="timeline-dot absolute w-6 h-6 bg-accent rounded-full -left-[13px] border-4 border-navy transition-colors duration-300"></div>
+                        <div class="timeline-content p-6 rounded-lg transition-all duration-300">
+                            <h4 class="text-3xl font-bold text-slate group-hover:text-accent transition-colors duration-300">Accounts Analyst Trainee <span class="text-accent group-hover:text-slate">| Space Electronics</span></h4>
+                            <p class="text-light-slate font-mono mt-1">January 2025 - June 2025</p>
+                            <ul class="mt-6 text-light-slate text-lg space-y-4 list-disc list-inside">
+                                <li>Analyzed five years of sales data (avg. ₹2 Cr. annual turnover) to identify key revenue drivers and performance trends.</li>
+                                <li>Developed and maintained Power BI dashboards to translate complex sales data into actionable insights for key stakeholders.</li>
+                            </ul>
+                        </div>
+                    </div>
+            
+                </div>
+            </section>
+            
+            <footer id="footer" class="text-center py-24 fade-in-up">
+                <h4 class="text-accent font-mono text-2xl mb-5">05. What's Next?</h4>
+                <h3 class="text-6xl font-bold text-slate mb-8">Get In Touch</h3>
+                <p class="text-light-slate text-xl max-w-3xl mx-auto mb-12">
+                    My inbox is always open, whether for a project, a question, or just a virtual coffee. Let's connect.
+                </p>
+                <div class="flex items-center justify-center gap-6">
+                    <a href="mailto:vasudesai1111@gmail.com" class="text-accent font-mono text-xl border border-accent rounded-md px-12 py-6 hover:bg-accent hover:bg-opacity-10 transition-colors duration-300">
+                        Say Hello
+                    </a>
+                    <a href="Resume_VasuDesai.pdf" target="_blank" class="text-accent font-mono text-xl border border-accent rounded-md px-12 py-6 hover:bg-accent hover:bg-opacity-10 transition-colors duration-300">
+                        My Resume
+                    </a>
+                </div>
+                <div class="mt-24 text-lg font-mono text-light-slate">
+                    Built by Vasu Desai
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <div id="mobile-menu-button" class="lg:hidden fixed top-6 right-6 z-50 p-2 rounded-md bg-light-navy/50 backdrop-blur-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </div>
+    <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-navy z-40 flex flex-col items-center justify-center text-center">
+        <nav class="flex flex-col gap-10 text-2xl">
+            <a href="#about" class="mobile-nav-link text-slate hover:text-accent">01. About</a>
+            <a href="#education" class="mobile-nav-link text-slate hover:text-accent">02. Education</a>
+            <a href="#projects" class="mobile-nav-link text-slate hover:text-accent">03. My Work</a>
+            <a href="#experience" class="mobile-nav-link text-slate hover:text-accent">04. Experience</a>
+            <a href="#footer" class="mobile-nav-link text-slate hover:text-accent">05. Contact</a>
+        </nav>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    const PARTICLE_COUNT = 100;
+    const PARTICLE_COLOR = 'rgba(168, 178, 209, 0.7)';
+    const MAX_LINE_DISTANCE = 150;
+    const MOUSE_INTERACTION_RADIUS = 200; // This was also missing
+
+    let particles = [];
+    const mouse = {
+        x: null,
+        y: null
+    };
+
+    window.addEventListener('mousemove', (event) => {
+        mouse.x = event.x;
+        mouse.y = event.y;
+    });
+    window.addEventListener('mouseout', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+    window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        init(); 
+    });
+
+    class Particle {
+        constructor(x, y, directionX, directionY, size, color) {
+            this.x = x; this.y = y; this.directionX = directionX; this.directionY = directionY; this.size = size; this.color = color;
+        }
+        draw() {
+            ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false); ctx.fillStyle = this.color; ctx.fill();
+        }
+        update() {
+            if (this.x > width || this.x < 0) { this.directionX = -this.directionX; }
+            if (this.y > height || this.y < 0) { this.directionY = -this.directionY; }
+            this.x += this.directionX; this.y += this.directionY; this.draw();
+        }
+    }
+
+    function init() {
+        particles = [];
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+            let size = Math.random() * 1.5 + 1; let x = Math.random() * width; let y = Math.random() * height;
+            let directionX = (Math.random() * 0.4) - 0.2; let directionY = (Math.random() * 0.4) - 0.2;
+            particles.push(new Particle(x, y, directionX, directionY, size, PARTICLE_COLOR));
+        }
+    }
+
+    function connect() {
+        // Connect particles to each other
+        for (let a = 0; a < particles.length; a++) {
+            for (let b = a; b < particles.length; b++) {
+                const distance = Math.sqrt(Math.pow(particles[a].x - particles[b].x, 2) + Math.pow(particles[a].y - particles[b].y, 2));
+                if (distance < MAX_LINE_DISTANCE) {
+                    const opacity = 1 - (distance / MAX_LINE_DISTANCE);
+                    ctx.strokeStyle = `rgba(168, 178, 209, ${opacity * 0.2})`; ctx.lineWidth = 1;
+                    ctx.beginPath(); ctx.moveTo(particles[a].x, particles[a].y); ctx.lineTo(particles[b].x, particles[b].y); ctx.stroke();
+                }
+            }
+        }
+        
+        // --- START OF FIXED CODE ---
+        // This part connects the particles to the mouse
+        if (mouse.x && mouse.y) {
+            for (let i = 0; i < particles.length; i++) {
+                const distanceToMouse = Math.sqrt(Math.pow(particles[i].x - mouse.x, 2) + Math.pow(particles[i].y - mouse.y, 2));
+                if (distanceToMouse < MOUSE_INTERACTION_RADIUS) {
+                    const opacity = 1 - (distanceToMouse / MOUSE_INTERACTION_RADIUS);
+                    ctx.strokeStyle = `rgba(168, 178, 209, ${opacity * 0.5})`;
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(mouse.x, mouse.y);
+                    ctx.stroke();
+                }
+            }
+        }
+        // --- END OF FIXED CODE ---
+    }
+
+    function animate() {
+        requestAnimationFrame(animate); 
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(particle => { particle.update(); });
+        connect();
+    }
+    
+    init();
+    animate();
+
+    // --- Mobile Menu and Scroll Spy (Unchanged) ---
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+    const sections = document.querySelectorAll('main section[id], main footer[id]');
+    const navLinks = document.querySelectorAll('#desktop-nav a.nav-link');
+    const activateNavLink = () => {
+        let currentSectionId = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= (sectionTop - sectionHeight / 3)) {
+                currentSectionId = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + currentSectionId) {
+                link.classList.add('active');
+            }
+        });
+    };
+    window.addEventListener('scroll', activateNavLink);
+    activateNavLink();
+});
+</script>
