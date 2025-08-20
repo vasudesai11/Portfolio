@@ -11,14 +11,14 @@ I love turning vague ideas into structured outcomes:
 
 ## 🌟 What I Do
 - Build projects around **data, strategy, and problem-solving**.  
-- Work on **business intelligence, analytics, and AI/ML**.  
+- Work on **business intelligence, analytics**.  
 - Lead teams in **finance, events, and strategy roles** at university clubs.  
 
 ## 🏆 A Few Highlights
 - 💡 Created analytics dashboards that unlocked insights from 5+ years of sales data.  
 - 📊 Built machine learning models to predict churn & optimize pricing.  
-- 🌱 Finance Lead @ V@rSITy Club (managing ₹3.2L budget).  
-- 🎤 Events Lead @ ACM Club (100+ attendees per workshop).  
+- 🌱 Finance Lead @ V@rSITy Club.  
+- 🎤 Events Lead @ ACM Club.  
 
 ## 🎮 Beyond Work
 When I’m not untangling data or strategy problems, you’ll find me:  
